@@ -1,0 +1,9 @@
+.card{
+    transition: all .3s ease-in-out;
+    border-radius: 3px;
+    position: relative;
+}
+.img_list{
+    height: 400px;
+    object-fit: cover;    
+}

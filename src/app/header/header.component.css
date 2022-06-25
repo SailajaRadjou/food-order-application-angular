@@ -1,0 +1,32 @@
+header{
+    background-color: white;
+    padding: 0;
+    border-bottom: 1px solid #e72929;
+}
+
+a{
+    color: #af1313;
+}
+a:hover{
+    color: #e72929;
+}
+
+.cart_div{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+.cart{
+    font-size: 30px;
+   
+    font-weight: 800;
+    
+}
+
+.item_count{
+    position: relative;
+    top: -26px;
+    left: -20px;
+    font-size: 22px;
+}
