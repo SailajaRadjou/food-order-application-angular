@@ -6,12 +6,25 @@
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
         <div class="col" *ngFor="let food of foods">
           <div class="card">            
-            <img [src]="food" class="card-img-top img_list" alt="...">
-            <!-- <div class="card-body text-center text">
-              <h5 class="card-title">{{ product.nom}}</h5>
-              <p class="card-text">{{ product.prix  | currency: 'EUR' }}</p>
+            <img [src]="food.imageUrl" class="card-img-top img_list" alt="...">
+            <div class="card-body text-center text">
+              <h5 class="card-title">{{ food.name}}</h5>
+              <span class="favorite {{food.favorite ? '' : 'not'}}"><i class="fa-solid fa-heart"></i></span>
+              <star-rating
+                 [value]="food.star"
+                 [totalstars]="5" 
+                 checkedcolor="red" 
+                 uncheckedcolor="grey" 
+                 size="26px" 
+                 [readonly]="true">
+              </star-rating>
+              <p class="card-text">{{ food.price  | currency: 'EUR' }}</p>
               <p class="buttons"><a class="btn btn-outline-secondary">View detail</a></p>
-            </div>           -->
+            </div> 
+            <div class="card-footer bg-transparent border-success">
+              <span><i class="fa-solid fa-clock"></i>{{food.cookTime}}</span>
+              <span *ngFor="let origin of food.origins">{{origin}}</span>
+            </div>          
           </div>
         </div>
     </div>
