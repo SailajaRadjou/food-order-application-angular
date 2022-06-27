@@ -17,12 +17,21 @@ export class HomeComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (params['searchItem']) {
         this.foods = this.foodService.getAll().filter(food => food.name.toLowerCase().includes(params['searchItem'].toLowerCase()));
-      } else {
+      } 
+      else if(params['tag']){
+        this.foods = this.foodService.getAllFoodByTag(params['tag']);
+      }     
+      else {
         this.foods = this.foodService.getAll();
       }
+      
     })
     
     
   }
 
 }
+function elseif(arg0: any) {
+  throw new Error('Function not implemented.');
+}
+

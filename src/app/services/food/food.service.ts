@@ -1,11 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Food } from 'src/app/models/food';
+import { Tag } from 'src/app/models/tag';
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
 
   constructor() { }
+
+  getAllTags(): Tag[]{
+    return [
+      {name: 'All', count: 15},
+      {name: 'Hamburger', count: 1},
+      {name: 'Pizza', count: 3},
+      {name: 'Fast Food', count: 15},
+      {name: 'Pasta', count: 3},
+      {name: 'Lasangne', count: 1},
+      {name: 'Chicken', count: 4},
+      {name: 'Tarts', count: 1},
+      {name: 'Rolls', count: 3}
+    ];
+  }
+
+  getAllFoodByTag(tag: string): Food[]{
+
+    return tag === 'All' ? 
+      this.getAll() : this.getAll().filter(food => food.tags?.includes(tag));
+    // if(tag == 'All')
+    //   return this.getAll()
+    // else
+    //   return this.getAll().filter(food => food.tags?.includes(tag));
+  }
 
   getAll():Food[]{
     return [
@@ -18,7 +43,7 @@ export class FoodService {
         origins: [' Germany ', ' US '],
         star: 3.5,
         imageUrl:'/assets/image1.jpg',
-        tags: [' Fast Food ', ' Hamburger ']       
+        tags: ['Fast Food','Hamburger']       
       },
       {
         id: 2,        
@@ -29,7 +54,7 @@ export class FoodService {
         origins: [' Italy ', ' US '],
         star: 4.5,
         imageUrl:'/assets/image2.jpg',
-        tags: [' Fast Food ', ' Pizza ']       
+        tags: ['Fast Food', 'Pizza']       
       },
       {
         id: 3,        
@@ -40,7 +65,7 @@ export class FoodService {
         origins: [' Italy ', ' France '],
         star: 4.0,
         imageUrl:'/assets/image3.jpg',
-        tags: [' Fast Food ', ' Lasange ']       
+        tags: ['Lasangne']       
       },
       {
         id: 4,        
@@ -51,7 +76,7 @@ export class FoodService {
         origins: [' Germany ', ' Spain ', ' Persia '],
         star: 3.0,
         imageUrl:'/assets/image4.jpg',
-        tags: [' Fast Food ', ' Tarts ']       
+        tags: ['Fast Food', 'Tarts']       
       },
       {
         id: 5,        
@@ -62,7 +87,7 @@ export class FoodService {
         origins: [' Italy ', ' France '],
         star: 4.5,
         imageUrl:'/assets/image5.jpg',
-        tags: [' Fast Food ', ' Pasta ']       
+        tags: ['Fast Food', 'Pasta']       
       },
       {
         id: 6,        
@@ -73,7 +98,7 @@ export class FoodService {
         origins: [' Spain ', ' Denmark ', ' London '],
         star: 4.0,
         imageUrl:'/assets/image6.jpg',
-        tags: [' Fast Food ', ' Chicken ']       
+        tags: ['Fast Food', 'Chicken']       
       },
       {
         id: 7,        
@@ -84,7 +109,7 @@ export class FoodService {
         origins: [' Korean ', ' Asia '],
         star: 4.5,
         imageUrl:'/assets/image7.jpg',
-        tags: [' Fast Food ', ' Fried ', ' Chicken ']       
+        tags: ['Fast Food', 'Fried', 'Chicken']       
       },
       {
         id: 8,        
@@ -95,7 +120,7 @@ export class FoodService {
         origins: [' Germany ', ' US  '],
         star: 3.0,
         imageUrl:'/assets/image8.jpg',
-        tags: [' Fast Food ', ' Crunchy ']       
+        tags: ['Fast Food', 'Crunchy', 'Chicken']       
       },
       {
         id: 9,        
@@ -106,7 +131,7 @@ export class FoodService {
         origins: [' China ', ' US '],
         star: 3.5,
         imageUrl:'/assets/image9.jpg',
-        tags: [' Fast Food ', ' Chicken ']       
+        tags: ['Fast Food', 'Chicken']       
       },
       {
         id: 10,        
@@ -117,7 +142,7 @@ export class FoodService {
         origins: [' China ', ' Korean '],
         star: 4.5,
         imageUrl:'/assets/image10.jpg',
-        tags: [' Fast Food ', ' Rolls ']       
+        tags: ['Fast Food', 'Rolls']       
       },
       {
         id: 11,        
@@ -128,7 +153,7 @@ export class FoodService {
         origins: [' Vietnam ', ' Philliphine '],
         star: 4.5,
         imageUrl:'/assets/image11.jpg',
-        tags: [' Fast Food ', ' Beef ']       
+        tags: ['Fast Food', 'Beef', 'Rolls']       
       },
       {
         id: 12,        
@@ -139,7 +164,7 @@ export class FoodService {
         origins: [' Italy ', ' France ', ' Germany '],
         star: 5.0,
         imageUrl:'/assets/image12.jpg',
-        tags: [' Fast Food ', ' Spaghetti ']       
+        tags: ['Fast Food', 'Spaghetti']       
       },
       {
         id: 13,        
@@ -150,7 +175,7 @@ export class FoodService {
         origins: [' Italy ', ' France ', ' Germany '],
         star: 4.5,
         imageUrl:'/assets/image13.jpg',
-        tags: [' Fast Food ', ' Taco ', ' Pizza ']       
+        tags: ['Fast Food', 'Taco', 'Pizza']       
       },
       {
         id: 14,        
@@ -161,7 +186,7 @@ export class FoodService {
         origins: [' Italy ', ' France ', ' Germany '],
         star: 4.0,
         imageUrl:'/assets/image14.jpg',
-        tags: [' Fast Food ', ' Pizza ']       
+        tags: ['Fast Food', 'Pizza']       
       },
       {
         id: 15,        
@@ -172,7 +197,7 @@ export class FoodService {
         origins: [' Italy ', ' France ', ' Germany '],
         star: 5.0,
         imageUrl:'/assets/image15.jpg',
-        tags: [' Fast Food ', ' Penne ',' Pasta ']       
+        tags: ['Fast Food', 'Penne','Pasta']       
       }      
       
     ];
