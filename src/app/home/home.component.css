@@ -7,3 +7,9 @@
     height: 400px;
     object-fit: cover;    
 }
+.favorite{
+    color: rgb(219, 37, 31);
+}
+.favoritenot{
+    color: rgb(88, 86, 86);
+}

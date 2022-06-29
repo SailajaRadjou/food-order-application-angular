@@ -9,7 +9,7 @@
             <img [src]="food.imageUrl" class="card-img-top img_list" alt="...">
             <div class="card-body text-center text">
               <h5 class="card-title">{{ food.name}}</h5>
-              <span class="favorite {{food.favorite ? '' : 'not'}}"><i class="fa-solid fa-heart"></i></span>
+              <span class="favorite{{food.favorite ? '' : 'not'}}"><i class="fa-solid fa-heart"></i></span>
               <star-rating
                  [value]="food.star"
                  [totalstars]="5" 
@@ -19,7 +19,7 @@
                  [readonly]="true">
               </star-rating>
               <p class="card-text">{{ food.price  | currency: 'EUR' }}</p>
-              <p class="buttons"><a class="btn btn-outline-secondary">View detail</a></p>
+              <p class="buttons"><a routerLink="/food/{{food.id}}" class="btn btn-outline-secondary">View detail</a></p>
             </div> 
             <div class="card-footer bg-transparent border-success">
               <span><i class="fa-solid fa-clock"></i>{{food.cookTime}}</span>
