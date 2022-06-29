@@ -1,1 +1,34 @@
-<p>food-detail works!</p>
+<div class="container" *ngIf="food"> 
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img [src]="food.imageUrl" class="img-fluid rounded-start img_list" [alt]="food.name">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">{{food.name}}</h3>                                        
+                    <span class="favorite{{food.favorite ? '' : 'not'}}"><i class="fa-solid fa-heart"></i></span>
+                    <p>Cook Time : {{food.cookTime}}</p>
+                    <p>Price :&nbsp;&nbsp;<b>{{food.price | currency: 'EUR'}}</b></p>
+                    
+                    <star-rating
+                        [value]="food.star"
+                        [totalstars]="5" 
+                        checkedcolor="red" 
+                        uncheckedcolor="grey" 
+                        size="26px" 
+                        [readonly]="true">
+                    </star-rating>
+                    <p class="card-text">Origin : {{food.origins}}</p>
+                    <p class="card-text"><small class="text-muted">Tags : {{food.tags}}</small></p>
+                </div>
+                <a class="btn btn_display" 
+                    style="background-color: #B22222; color: white;"
+                    (click)="addToCart()">Order now</a>  
+            </div>
+        </div>
+    </div>
+    <div class="tags">
+        <app-tags [foodPageTags]="food.tags"></app-tags>
+    </div>
+</div>  
